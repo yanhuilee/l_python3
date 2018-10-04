@@ -25,3 +25,16 @@ req = request.Request(dapeng_url, headers=headers)
 resp = opener.open(req)
 with open('renren.html', 'w', encoding='utf-8') as f:
     f.write(resp.read().decode('utf-8'))
+
+# 保存cookie到本地
+from http.cookiejar import MozillaCookieJar
+
+cookiejar = MozillaCookieJar('cookie.txt')
+cookiejar.save(ignore_discard=True)
+cookiejar.load(ignore_discard=True)
+handler = request.HTTPCookieProcessor(cookiejar)
+opener = request.build_opener(handler)
+resp = opener.open('http://httpbin.org/cookies')
+print(cookiejar)
+for cookie in cookiejar:
+    print(cookie)
