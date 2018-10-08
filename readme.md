@@ -10,3 +10,15 @@ import sys
 # 改变标准输出的默认编码
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')
 ```
+
+venv
+---
+```
+source venv/Scripts/activate
+python -m pip install -U pip
+```
+
+#### 问题整理
+Microsoft Visual C++ 14.0 is required.
+手动下载whl包
+

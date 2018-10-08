@@ -5,8 +5,3 @@
 - 04 文章分类分组及标签分组
 - 06 文章详情页面
 
----
-```
-source venv/Scripts/activate
-python -m pip install -U pip
-```

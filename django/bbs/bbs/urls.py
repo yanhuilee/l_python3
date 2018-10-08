@@ -16,7 +16,11 @@ Including another URLconf
 from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
+from django.views.static import serve
+from django.conf import settings
+
 from blog import views
+from blog import urls as blog_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +32,12 @@ urlpatterns = [
 
     path('^blog/', include(blog_urls)),
 
+    path('^get_valid_img.png/', views.get_valid_img),
     # 极验滑动验证码 获取验证码的url
     path('pc-geetest/register', views.get_geetest),
+
+    # 校验用户名是否已被注册
+    path('^check_username_exist/$', views.check_username_exist),
+    # media相关的路由设置
+    path('^media/(P<path>.*)$', serve, {"document_root": settings.MEDIA_ROOT})
 ]
