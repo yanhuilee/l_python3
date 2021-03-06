@@ -11,17 +11,6 @@ import sys
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')
 ```
 
-venv
-```
-# 安装
-pip install virtualenv
-virtualenv --version
-virtualenv venv
-
-source venv/Scripts/activate
-python -m pip install -U pip
-```
-
 #### 问题整理
 Microsoft Visual C++ 14.0 is required.
 手动下载whl包
@@ -48,7 +37,3 @@ response.css('title::text')[0].extract()
 response.xpath('//title/text()').extract_first
 
 ```
-
-### e起去旅游
-
-[链接](https://github.com/yanhuilee/l_python3/blob/master/flask/Travel/readme.md)
